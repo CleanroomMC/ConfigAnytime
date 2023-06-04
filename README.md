@@ -1,6 +1,6 @@
 ## ConfigAnytime
 
-#### Allows Forge configurations to be setup at any point in time. Especially for developers that use Forge's configuration system during coremod/tweaker's loading stage
+#### Allows Forge configurations to be setup at any point in time. Especially for developers that use Forge's configuration system during coremod/tweaker's loading stage.
 
 
 ### Dev Usage:

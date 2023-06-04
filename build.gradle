@@ -205,3 +205,22 @@ idea {
 tasks.named("processIdeaSettings").configure {
     dependsOn("injectTags")
 }
+
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            from components.java
+            groupId project.group
+            artifactId project.archivesBaseName
+        }
+    }
+    repositories {
+        maven {
+            url cleanroom_maven
+            credentials {
+                username cleanroom_user
+                password cleanroom_pass
+            }
+        }
+    }
+}
