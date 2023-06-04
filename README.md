@@ -1,16 +1,37 @@
-## TemplateDevEnv
+## ConfigAnytime
 
-Template workspace for modding Minecraft 1.12.2. Licensed under MIT, it is made for public use.
+#### Allows Forge configurations to be setup at any point in time. Especially for developers that use Forge's configuration system during coremod/tweaker's loading stage
 
-This template currently utilizies **Gradle 8.1.1** + **[RetroFuturaGradle](https://github.com/GTNewHorizons/RetroFuturaGradle) 1.3.6** + **Forge 14.23.5.2847**.
 
-With **coremod and mixin support** that is easy to configure.
+### Dev Usage:
 
-### Instructions:
+- Add CleanroomMC's repository and depend on ConfigAnytime's maven entry:
+```groovy
+repositories {
+    maven {
+        url 'https://maven.cleanroommc.com'
+    }
+}
 
-1. Click `use this template` at the top.
-2. Clone the repository you have created with this template.
-3. In the local repository, run the command `gradlew setupDecompWorkspace`
-4. Open the project folder in IDEA.
-5. Right-click in IDEA `build.gradle` of your project, and select `Link Gradle Project`, after completion, hit `Refresh All` in the gradle tab on the right.
-6. Run `gradlew runClient` and `gradlew runServer`, or use the auto-imported run configurations in IntelliJ like `1. Run Client`.
+dependencies {
+    implementation 'com.cleanroommc:configanytime:1.0'
+}
+- ```
+
+- Example API Usage:
+
+```java
+@Config(modid = "configanytime")
+public class ConfigClass {
+    
+    public static boolean configBooleanProperty = true;
+    public static int configIntProperty = 42;
+    
+    // Static initializers go after the properties!
+    // This will run automatically when you retrieve any properties from this config class
+    static {
+        ConfigAnytime.register(ConfigClass.class);
+    }
+    
+}
+```

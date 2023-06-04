@@ -1,14 +1,14 @@
 [
 {
-  "modid": "examplemod",
-  "name": "Example Mod",
-  "description": "Example placeholder mod.",
+  "modid": "configanytime",
+  "name": "ConfigAnytime",
+  "description": "Allows Forge configurations to be setup at any point in time.",
   "version": "${version}",
   "mcversion": "${mcversion}",
   "url": "",
   "updateUrl": "",
   "authorList": ["CleanroomMC"],
-  "credits": "Authors of this project",
+  "credits": "Rongmario",
   "logoFile": "",
   "screenshots": [],
   "dependencies": []
