@@ -16,7 +16,7 @@ repositories {
 dependencies {
     implementation 'com.cleanroommc:configanytime:1.0'
 }
-- ```
+```
 
 - Example API Usage:
 
