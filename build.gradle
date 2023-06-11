@@ -211,7 +211,7 @@ publishing {
         mavenJava(MavenPublication) {
             from components.java
             groupId project.group
-            artifactId project.archivesBaseName
+            artifactId project.archives_base_name
         }
     }
     repositories {
