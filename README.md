@@ -27,6 +27,14 @@ public class ConfigClass {
     public static boolean configBooleanProperty = true;
     public static int configIntProperty = 42;
     
+    public static final InnerClass INNER_CLASS = new InnerClass(); // Inner access via this member, this is processed automatically by ConfigManager
+    
+    public static class InnerClass {
+        
+        public boolean innerProperty = false; // Must be non-static, referenced via the member field in the outer class
+        
+    }
+    
     // Static initializers go after the properties!
     // This will run automatically when you retrieve any properties from this config class
     static {
