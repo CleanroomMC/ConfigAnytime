@@ -17,7 +17,7 @@ import java.lang.reflect.Method;
 import java.util.Map;
 import java.util.Set;
 
-@Mod(modid = "configanytime", name = "ConfigAnytime", version = "1.0")
+@Mod(modid = "configanytime", name = "ConfigAnytime", version = "2.0")
 public class ConfigAnytime {
 
     // Lookup#findStatic is used as getDeclaredMethod forcefully loads in classes related to any methods in the class body
@@ -49,7 +49,7 @@ public class ConfigAnytime {
             Method classLoader$findLoadedClass = ClassLoader.class.getDeclaredMethod("findLoadedClass", String.class);
             classLoader$findLoadedClass.setAccessible(true);
             if (classLoader$findLoadedClass.invoke(Launch.classLoader, "net.minecraftforge.fml.common.Loader") != null) {
-                if (!Loader.instance().hasReachedState(LoaderState.LOADING)) {
+                if (!Loader.instance().hasReachedState(LoaderState.PREINITIALIZATION)) {
                     // Early
                     $register(configClass);
                 }

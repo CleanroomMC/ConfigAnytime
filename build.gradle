@@ -209,6 +209,7 @@ tasks.named("processIdeaSettings").configure {
 publishing {
     publications {
         mavenJava(MavenPublication) {
+            // from components.java
             from components.java
             groupId project.group
             artifactId project.archives_base_name
@@ -216,11 +217,13 @@ publishing {
     }
     repositories {
         maven {
-            url cleanroom_maven
-            credentials {
-                username cleanroom_user
-                password cleanroom_pass
+            name = 'CleanroomMaven'
+            url = CleanroomMaven
+            credentials(PasswordCredentials)
+            authentication {
+                basic(BasicAuthentication)
             }
         }
     }
 }
+
