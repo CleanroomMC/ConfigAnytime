@@ -17,7 +17,7 @@ import java.lang.reflect.Method;
 import java.util.Map;
 import java.util.Set;
 
-@Mod(modid = "configanytime", name = "ConfigAnytime", version = "2.0")
+@Mod(modid = "configanytime", name = "ConfigAnytime", version = "2.0", acceptableRemoteVersions = "[1.0,10)")
 public class ConfigAnytime {
 
     // Lookup#findStatic is used as getDeclaredMethod forcefully loads in classes related to any methods in the class body
