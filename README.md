@@ -14,7 +14,7 @@ repositories {
 }
 
 dependencies {
-    implementation 'com.cleanroommc:configanytime:2.0'
+    implementation 'com.cleanroommc:configanytime:3.0'
 }
 ```
 
