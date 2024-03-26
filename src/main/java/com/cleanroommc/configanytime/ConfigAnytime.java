@@ -1,5 +1,6 @@
 package com.cleanroommc.configanytime;
 
+import com.google.common.base.Strings;
 import com.google.common.collect.Sets;
 import net.minecraft.launchwrapper.Launch;
 import net.minecraftforge.common.config.*;
@@ -78,12 +79,17 @@ public class ConfigAnytime {
         modConfigClasses.add(configClass);
 
         File configDir = new File(Launch.minecraftHome, "config");
-        File configFile = new File(configDir, config.name() + ".cfg");
-        Configuration cfg = CONFIGS.get(configFile.getAbsolutePath());
+        String cfgName = config.name();
+        if (Strings.isNullOrEmpty(cfgName)) {
+            cfgName = modId;
+        }
+        File configFile = new File(configDir, cfgName + ".cfg");
+        String configFileAbsolute = configFile.getAbsolutePath();
+        Configuration cfg = CONFIGS.get(configFileAbsolute);
         if (cfg == null) {
             cfg = new Configuration(configFile);
             cfg.load();
-            CONFIGS.put(configFile.getAbsolutePath(), cfg);
+            CONFIGS.put(configFileAbsolute, cfg);
         }
 
         CONFIGMANAGER$SYNC.invokeExact(cfg, configClass, modId, config.category(), true, (Object) null);
